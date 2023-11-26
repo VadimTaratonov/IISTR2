@@ -1,0 +1,196 @@
+import ru.taratonov.iistr2.model.ProductDto
+import ru.taratonov.iistr2.model.ProductName
+import ru.taratonov.iistr2.model.Answer
+
+global ru.taratonov.iistr2.model.InformationForCustomer informationForCustomer
+global java.lang.Integer acceptableAmountOfNitratesPotato
+global java.lang.Integer acceptableAmountOfNitratesCabbage
+global java.lang.Integer acceptableAmountOfNitratesCarrot
+global java.lang.Integer acceptableAmountOfNitratesCucumber
+global java.lang.Integer acceptableAmountOfNitratesTomato
+global java.lang.Integer acceptableAmountOfNitratesBeet
+global java.lang.Integer acceptableAmountOfNitratesMelon
+global java.lang.Integer acceptableAmountOfNitratesWatermelon
+global java.lang.Integer acceptableAmountOfNitratesOnion
+
+dialect  "mvel"
+
+rule "Positive result Potato"
+    when
+        p: ProductDto(p.productName == ProductName.POTATO && p.amountOfNitrates <= acceptableAmountOfNitratesPotato)
+    then
+        informationForCustomer.setProductName(ProductName.POTATO);
+        informationForCustomer.setCurrentAmountOfNitrates(p.amountOfNitrates);
+        informationForCustomer.setAcceptableAmountOfNitrates(acceptableAmountOfNitratesPotato);
+        informationForCustomer.setAnswer(Answer.YES);
+end
+
+rule "Negative result Potato"
+    when
+        p: ProductDto(p.productName == ProductName.POTATO && p.amountOfNitrates > acceptableAmountOfNitratesPotato)
+    then
+        informationForCustomer.setProductName(ProductName.POTATO);
+        informationForCustomer.setCurrentAmountOfNitrates(p.amountOfNitrates);
+        informationForCustomer.setAcceptableAmountOfNitrates(acceptableAmountOfNitratesPotato);
+        informationForCustomer.setAnswer(Answer.NO);
+end
+
+rule "Positive result Cabbage"
+    when
+        p: ProductDto(p.productName == ProductName.CABBAGE && p.amountOfNitrates <= acceptableAmountOfNitratesCabbage)
+    then
+        informationForCustomer.setProductName(ProductName.CABBAGE);
+        informationForCustomer.setCurrentAmountOfNitrates(p.amountOfNitrates);
+        informationForCustomer.setAcceptableAmountOfNitrates(acceptableAmountOfNitratesCabbage);
+        informationForCustomer.setAnswer(Answer.YES);
+end
+
+rule "Negative result Cabbage"
+    when
+        p: ProductDto(p.productName == ProductName.CABBAGE && p.amountOfNitrates > acceptableAmountOfNitratesCabbage)
+    then
+        informationForCustomer.setProductName(ProductName.CABBAGE);
+        informationForCustomer.setCurrentAmountOfNitrates(p.amountOfNitrates);
+        informationForCustomer.setAcceptableAmountOfNitrates(acceptableAmountOfNitratesCabbage);
+        informationForCustomer.setAnswer(Answer.NO);
+end
+
+rule "Positive result Carrot"
+    when
+        p: ProductDto(p.productName == ProductName.CARROT && p.amountOfNitrates <= acceptableAmountOfNitratesCarrot)
+    then
+        informationForCustomer.setProductName(ProductName.CARROT);
+        informationForCustomer.setCurrentAmountOfNitrates(p.amountOfNitrates);
+        informationForCustomer.setAcceptableAmountOfNitrates(acceptableAmountOfNitratesCarrot);
+        informationForCustomer.setAnswer(Answer.YES);
+end
+
+rule "Negative result Carrot"
+    when
+        p: ProductDto(p.productName == ProductName.CARROT && p.amountOfNitrates > acceptableAmountOfNitratesCarrot)
+    then
+        informationForCustomer.setProductName(ProductName.CARROT);
+        informationForCustomer.setCurrentAmountOfNitrates(p.amountOfNitrates);
+        informationForCustomer.setAcceptableAmountOfNitrates(acceptableAmountOfNitratesCarrot);
+        informationForCustomer.setAnswer(Answer.NO);
+end
+
+rule "Positive result Cucumber"
+    when
+        p: ProductDto(p.productName == ProductName.CUCUMBER && p.amountOfNitrates <= acceptableAmountOfNitratesCucumber)
+    then
+        informationForCustomer.setProductName(ProductName.CUCUMBER);
+        informationForCustomer.setCurrentAmountOfNitrates(p.amountOfNitrates);
+        informationForCustomer.setAcceptableAmountOfNitrates(acceptableAmountOfNitratesCucumber);
+        informationForCustomer.setAnswer(Answer.YES);
+end
+
+rule "Negative result Cucumber"
+    when
+        p: ProductDto(p.productName == ProductName.CUCUMBER && p.amountOfNitrates > acceptableAmountOfNitratesCucumber)
+    then
+        informationForCustomer.setProductName(ProductName.CUCUMBER);
+        informationForCustomer.setCurrentAmountOfNitrates(p.amountOfNitrates);
+        informationForCustomer.setAcceptableAmountOfNitrates(acceptableAmountOfNitratesCucumber);
+        informationForCustomer.setAnswer(Answer.NO);
+end
+
+rule "Positive result Tomato"
+    when
+        p: ProductDto(p.productName == ProductName.TOMATO && p.amountOfNitrates <= acceptableAmountOfNitratesTomato)
+    then
+        informationForCustomer.setProductName(ProductName.TOMATO);
+        informationForCustomer.setCurrentAmountOfNitrates(p.amountOfNitrates);
+        informationForCustomer.setAcceptableAmountOfNitrates(acceptableAmountOfNitratesTomato);
+        informationForCustomer.setAnswer(Answer.YES);
+end
+
+rule "Negative result Tomato"
+    when
+        p: ProductDto(p.productName == ProductName.TOMATO && p.amountOfNitrates > acceptableAmountOfNitratesTomato)
+    then
+        informationForCustomer.setProductName(ProductName.TOMATO);
+        informationForCustomer.setCurrentAmountOfNitrates(p.amountOfNitrates);
+        informationForCustomer.setAcceptableAmountOfNitrates(acceptableAmountOfNitratesTomato);
+        informationForCustomer.setAnswer(Answer.NO);
+end
+
+rule "Positive result Beet"
+    when
+        p: ProductDto(p.productName == ProductName.BEET && p.amountOfNitrates <= acceptableAmountOfNitratesBeet)
+    then
+        informationForCustomer.setProductName(ProductName.BEET);
+        informationForCustomer.setCurrentAmountOfNitrates(p.amountOfNitrates);
+        informationForCustomer.setAcceptableAmountOfNitrates(acceptableAmountOfNitratesBeet);
+        informationForCustomer.setAnswer(Answer.YES);
+end
+
+rule "Negative result Beet"
+    when
+        p: ProductDto(p.productName == ProductName.BEET && p.amountOfNitrates > acceptableAmountOfNitratesBeet)
+    then
+        informationForCustomer.setProductName(ProductName.BEET);
+        informationForCustomer.setCurrentAmountOfNitrates(p.amountOfNitrates);
+        informationForCustomer.setAcceptableAmountOfNitrates(acceptableAmountOfNitratesBeet);
+        informationForCustomer.setAnswer(Answer.NO);
+end
+
+rule "Positive result Melon"
+    when
+        p: ProductDto(p.productName == ProductName.MELON && p.amountOfNitrates <= acceptableAmountOfNitratesMelon)
+    then
+        informationForCustomer.setProductName(ProductName.MELON);
+        informationForCustomer.setCurrentAmountOfNitrates(p.amountOfNitrates);
+        informationForCustomer.setAcceptableAmountOfNitrates(acceptableAmountOfNitratesMelon);
+        informationForCustomer.setAnswer(Answer.YES);
+end
+
+rule "Negative result Melon"
+    when
+        p: ProductDto(p.productName == ProductName.MELON && p.amountOfNitrates > acceptableAmountOfNitratesMelon)
+    then
+        informationForCustomer.setProductName(ProductName.MELON);
+        informationForCustomer.setCurrentAmountOfNitrates(p.amountOfNitrates);
+        informationForCustomer.setAcceptableAmountOfNitrates(acceptableAmountOfNitratesMelon);
+        informationForCustomer.setAnswer(Answer.NO);
+end
+
+rule "Positive result Watermalon"
+    when
+        p: ProductDto(p.productName == ProductName.WATERMELON && p.amountOfNitrates <= acceptableAmountOfNitratesWatermelon)
+    then
+        informationForCustomer.setProductName(ProductName.WATERMELON);
+        informationForCustomer.setCurrentAmountOfNitrates(p.amountOfNitrates);
+        informationForCustomer.setAcceptableAmountOfNitrates(acceptableAmountOfNitratesWatermelon);
+        informationForCustomer.setAnswer(Answer.YES);
+end
+
+rule "Negative result Watermalon"
+    when
+        p: ProductDto(p.productName == ProductName.WATERMELON && p.amountOfNitrates > acceptableAmountOfNitratesWatermelon)
+    then
+        informationForCustomer.setProductName(ProductName.WATERMELON);
+        informationForCustomer.setCurrentAmountOfNitrates(p.amountOfNitrates);
+        informationForCustomer.setAcceptableAmountOfNitrates(acceptableAmountOfNitratesWatermelon);
+        informationForCustomer.setAnswer(Answer.NO);
+end
+
+rule "Positive result Onion"
+    when
+        p: ProductDto(p.productName == ProductName.ONION && p.amountOfNitrates <= acceptableAmountOfNitratesOnion)
+    then
+        informationForCustomer.setProductName(ProductName.ONION);
+        informationForCustomer.setCurrentAmountOfNitrates(p.amountOfNitrates);
+        informationForCustomer.setAcceptableAmountOfNitrates(acceptableAmountOfNitratesOnion);
+        informationForCustomer.setAnswer(Answer.YES);
+end
+
+rule "Negative result Onion"
+    when
+        p: ProductDto(p.productName == ProductName.ONION && p.amountOfNitrates > acceptableAmountOfNitratesOnion)
+    then
+        informationForCustomer.setProductName(ProductName.ONION);
+        informationForCustomer.setCurrentAmountOfNitrates(p.amountOfNitrates);
+        informationForCustomer.setAcceptableAmountOfNitrates(acceptableAmountOfNitratesOnion);
+        informationForCustomer.setAnswer(Answer.NO);
+end

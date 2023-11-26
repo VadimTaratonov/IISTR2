@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Transfusion {
-    private BloodType donorBloodType;
-    private BloodType recipientBloodType;
+public class ProductDto {
+    private ProductName productName;
+    private Integer amountOfNitrates;
 }
