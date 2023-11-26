@@ -8,6 +8,7 @@ import org.kie.api.builder.ReleaseId;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.kie.internal.io.ResourceFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,10 +16,12 @@ import java.util.List;
 @Service
 public class DroolsBeanFactory {
     private final KieServices kieServices = KieServices.Factory.get();
+    @Value("${drools.rule.path}")
+    private String pathToRule;
 
     private KieFileSystem getKieFileSystem() {
         KieFileSystem kieFileSystem = kieServices.newKieFileSystem();
-        List<String> rules = List.of("rules/bloodRules.drl");
+        List<String> rules = List.of(pathToRule);
         for (String rule : rules) {
             kieFileSystem.write(ResourceFactory.newClassPathResource(rule));
         }
